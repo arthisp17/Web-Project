@@ -77,7 +77,7 @@ function saveFavorites(fav) {
 }
 
 // Add book with PDF support
-function addBook(bookData, pdfFile) {
+async function addBook(bookData, pdfFile) {
    
     const newId = generateId();
     
@@ -91,13 +91,14 @@ function addBook(bookData, pdfFile) {
         hasPDF: !!pdfFile
     };
     
-    db.collection("books").add(newBook)
-    .then(() => {
-      alert("Book added successfully!");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    try {
+    await db.collection("books").add(newBook);
+    showToast("Book added successfully!");
+} catch (error) {
+    console.log(error);
+    showToast("Error adding book", true);
+    return;
+}
     
     if (pdfFile) {
         const reader = new FileReader();
@@ -463,7 +464,7 @@ if (form) {
         });
     }
     
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const title = document.getElementById('title').value.trim();
         const author = document.getElementById('author').value.trim();
@@ -476,14 +477,14 @@ if (form) {
             return;
         }
         
-        addBook({ title, author, genre, year, description }, selectedPdfFile);
+         await addBook({ title, author, genre, year, description }, selectedPdfFile);
         showToast(`📚 "${title}" added!`);
         form.reset();
         hidePdfFileName();
         
         setTimeout(() => {
             window.location.href = 'books.html';
-        }, 800);
+        }, 2000);
     });
 }
 
