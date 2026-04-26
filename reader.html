@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Read Book</title>
+</head>
+<body style="text-align:center; background:black; color:white;">
+
+<h2>📖 Reading Book</h2>
+
+<iframe id="viewer" width="90%" height="600px"></iframe>
+
+<script>
+let file = localStorage.getItem("currentBook");
+document.getElementById("viewer").src = file;
+</script>
+
+</body>
+</html>

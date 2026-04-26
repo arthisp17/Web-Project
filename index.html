@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysian Library | Your Digital Book Sanctuary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <h2><i class="fas fa-feather-alt"></i> Elysian Library</h2>
+    <div class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="books.html"><i class="fas fa-book"></i> Books</a>
+        <a href="add.html"><i class="fas fa-plus"></i> Add</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    </div>
+</nav>
+
+<main class="container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-badge">
+            <span class="badge"><i class="fas fa-gem"></i> Premium Digital Library</span>
+        </div>
+        <h1 class="hero-title">
+            Your Digital 
+            <span class="gradient-text">Book Sanctuary</span>
+        </h1>
+        <p class="hero-description">
+            Organise, cherish, and rediscover your personal library — all stored privately on your device.
+        </p>
+        <div class="hero-buttons">
+            <a href="books.html" class="btn-primary btn-glow">
+                <i class="fas fa-arrow-right"></i> Browse Collection
+            </a>
+            <a href="add.html" class="btn-secondary">
+                <i class="fas fa-plus-circle"></i> Add a Book
+            </a>
+        </div>
+        
+        <!-- Floating Orbs -->
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
+    </div>
+    
+    <!-- Stats Bar -->
+    <div class="stats-bar-wrapper">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <div>
+                    <h4>Local Storage</h4>
+                    <p>100% Private</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>Secure</h4>
+                    <p>Your Data Only</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-infinity"></i>
+                <div>
+                    <h4>Unlimited</h4>
+                    <p>Books & PDFs</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-sync-alt"></i>
+                <div>
+                    <h4>Auto-Save</h4>
+                    <p>Never Lose Data</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Feature Cards -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon-wrapper">
+                <div class="feature-icon-bg"></div>
+                <i class="fas fa-plus-circle"></i>
+            </div>
+            <h3>Add Books</h3>
+            <p>Record title, author, genre, year, notes and optionally attach a PDF file.</p>
+            <div class="feature-tag">Easy Upload</div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon-wrapper">
+                <div class="feature-icon-bg"></div>
+                <i class="fas fa-search"></i>
+            </div>
+            <h3>Search & Filter</h3>
+            <p>Instantly find any book by title, author, or genre with lightning-fast search.</p>
+            <div class="feature-tag">Real-time</div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon-wrapper">
+                <div class="feature-icon-bg"></div>
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>Favourites</h3>
+            <p>Star the books you love and view them all in one dedicated tab.</p>
+            <div class="feature-tag">Save Favorites</div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon-wrapper">
+                <div class="feature-icon-bg"></div>
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3>Private & Local</h3>
+            <p>Everything is stored in your browser. No account or server needed.</p>
+            <div class="feature-tag">100% Private</div>
+        </div>
+    </div>
+    
+    <!-- Recently Added Books Section -->
+    <div class="recent-section">
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-clock"></i> Recently Added
+            </h2>
+            <div class="section-line"></div>
+        </div>
+        <div id="recentBooksList" class="recent-grid"></div>
+    </div>
+    
+    <!-- View Favorites Button -->
+    <div class="favorites-section">
+        <button id="viewFavoritesBtn" class="favorites-btn">
+            <i class="fas fa-heart"></i> 
+            <span>View My Favorite Books</span>
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <!-- Favorites Books Display -->
+    <div id="favoritesList" class="favorites-grid" style="display: none;"></div>
+    
+    <!-- Quote Section -->
+    <div class="quote-section">
+        <div class="quote-icon">
+            <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="quote-text">
+            "A reader lives a thousand lives before he dies. The man who never reads lives only one."
+        </div>
+        <div class="quote-author">— George R.R. Martin</div>
+        <div class="quote-decoration"></div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <i class="fas fa-feather-alt"></i>
+            <span>Elysian Library</span>
+        </div>
+        <p>© 2024 Elysian Library — Your personal book sanctuary</p>
+    </div>
+</footer>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

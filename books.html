@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysian Library | Books</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <h2>Elysian</h2>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="add.html">Add</a>
+        <a href="about.html">About</a>
+    </div>
+</nav>
+
+<div class="books-container">
+    <h1>My Book Collection</h1>
+    
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by title, author, genre...">
+        <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+    </div>
+    
+    <!-- Stats Row -->
+    <div class="stats-row">
+        <span id="bookCount">0 books</span>
+        <span id="favCount">0 favourite</span>
+        <span id="shownCount">0 shown</span>
+    </div>
+    
+    <!-- Filter Row -->
+    <div class="filter-row">
+        <div class="filter-group">
+            <label>All Genres</label>
+            <select id="genreFilter">
+                <option value="All">All Genres</option>
+            </select>
+        </div>
+        <button id="favoritesFilterBtn" class="fav-filter-btn"><i class="fas fa-heart"></i> Favourites</button>
+        <button id="resetBtn" class="reset-btn"><i class="fas fa-undo-alt"></i> Reset</button>
+    </div>
+    
+    <!-- Book List -->
+    <div id="bookList" class="book-grid"></div>
+    
+    <!-- Add Button -->
+    <div class="add-button">
+        <a href="add.html"><i class="fas fa-plus-circle"></i> Add New Book</a>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Elysian Library — Your personal book sanctuary</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
