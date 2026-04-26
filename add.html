@@ -1,24 +1,97 @@
-async function addBook(bookData, pdfFile) {
-    const newId = generateId();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysian Library | Add Book</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
 
-    const newBook = {
-        id: newId,
-        title: bookData.title,
-        author: bookData.author,
-        genre: bookData.genre || 'Uncategorised',
-        year: bookData.year || '',
-        description: bookData.description || '',
-        hasPDF: false
-    };
+<nav>
+    <h2>Elysian</h2>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="add.html">Add</a>
+        <a href="about.html">About</a>
+    </div>
+</nav>
 
-    try {
-        await db.collection("books").add(newBook);
+<div class="add-container">
+    <h1>Add a Book</h1>
+    
+    <form id="bookForm">
+        <!-- Title -->
+        <div class="form-group">
+            <label>Title *</label>
+            <input type="text" id="title" placeholder="Book title" required>
+        </div>
+        
+        <!-- Author -->
+        <div class="form-group">
+            <label>Author *</label>
+            <input type="text" id="author" placeholder="Author name" required>
+        </div>
+        
+        <!-- Genre + Year Published -->
+        <div class="form-row">
+            <div class="form-group half">
+                <label>Genre</label>
+                <select id="genre">
+                    <option value="">Select genre</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Biography">Biography</option>
+                    <option value="History">History</option>
+                    <option value="Self-Help">Self-Help</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Children">Children</option>
+                </select>
+            </div>
+            <div class="form-group half">
+                <label>Year Published</label>
+                <input type="text" id="year" placeholder="e.g. 2021">
+            </div>
+        </div>
+        
+        <!-- Notes / Description -->
+        <div class="form-group">
+            <label>Notes / Description</label>
+            <textarea id="description" rows="4" placeholder="A short description or your personal notes..."></textarea>
+        </div>
+        
+        <!-- PDF Upload -->
+        <div class="form-group">
+            <label>PDF File (optional)</label>
+            <div class="pdf-dropzone" id="pdfDropzone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Drop PDF here or click to browse</p>
+                <input type="file" id="pdfFile" accept="application/pdf" style="display: none;">
+            </div>
+            <div id="pdfFileName" class="pdf-file-name" style="display: none;">
+                <i class="fas fa-file-pdf"></i> <span></span>
+                <button type="button" id="removePdfBtn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="form-buttons">
+            <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Book</button>
+            <button type="button" class="clear-btn" id="clearBtn"><i class="fas fa-eraser"></i> Clear</button>
+        </div>
+    </form>
+</div>
 
-        alert("Book added successfully!");
-
-        return newBook;
-    } catch (error) {
-        console.log(error);
-        alert("Error adding book");
-    }
-}
+<footer>
+    <p>© 2024 Elysian Library — Your personal book sanctuary</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

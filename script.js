@@ -78,39 +78,42 @@ function saveFavorites(fav) {
 
 // Add book with PDF support
 async function addBook(bookData, pdfFile) {
-   
     const newId = generateId();
-    
-    const newBook = { 
-        id: newId, 
+
+    const newBook = {
+        id: newId,
         title: bookData.title,
         author: bookData.author,
-        genre: bookData.genre || 'Uncategorised',
-        year: bookData.year || '',
-        description: bookData.description || '',
+        genre: bookData.genre || "Uncategorised",
+        year: bookData.year || "",
+        description: bookData.description || "",
         hasPDF: !!pdfFile
     };
-    
-    try {
-    await db.collection("books").add(newBook);
-    showToast("Book added successfully!");
-} catch (error) {
-    console.log(error);
-    showToast("Error adding book", true);
-    return;
-}
-    
-    if (pdfFile) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            savePDFToLocal(newId, e.target.result);
-        };
-        reader.readAsDataURL(pdfFile);
-    }
-    
-    return newBook;
-}
 
+    try {
+        // Save book in Firebase
+        await db.collection("books").add(newBook);
+
+        showToast("Book added successfully!");
+
+        // Save PDF in localStorage
+        if (pdfFile) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                savePDFToLocal(newId, e.target.result);
+            };
+
+            reader.readAsDataURL(pdfFile);
+        }
+
+        return newBook;
+
+    } catch (error) {
+        console.log(error);
+        showToast("Error adding book", true);
+    }
+}
 // Delete book
 async function deleteBook(id) {
     let books = await loadBooks();
