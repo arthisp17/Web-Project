@@ -464,7 +464,7 @@ if (form) {
         });
     }
     
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit',async function(e) {
         e.preventDefault();
         const title = document.getElementById('title').value.trim();
         const author = document.getElementById('author').value.trim();
@@ -602,13 +602,13 @@ function addBook(bookData, pdfFile) {
       console.log(error);
     });
     
-    if (pdfFile) {
+    /*if (pdfFile) {
         const reader = new FileReader();
         reader.onload = function(e) {
             savePDFToLocal(newId, e.target.result);
         };
         reader.readAsDataURL(pdfFile);
-    }
+    }*/
     
     return newBook;
 }
@@ -966,7 +966,7 @@ if (form) {
         });
     }
     
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const title = document.getElementById('title').value.trim();
         const author = document.getElementById('author').value.trim();
@@ -979,7 +979,7 @@ if (form) {
             return;
         }
         
-        addBook({ title, author, genre, year, description }, selectedPdfFile);
+        await addBook({ title, author, genre, year, description }, selectedPdfFile);
         showToast(`📚 "${title}" added!`);
         form.reset();
         hidePdfFileName();
