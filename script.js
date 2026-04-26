@@ -104,7 +104,16 @@ async function addBook(bookData, pdfFile) {
                 savePDFToLocal(newId, e.target.result);
             };
 
-            reader.readAsDataURL(pdfFile);
+            await new Promise((resolve) => {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        savePDFToLocal(newId, e.target.result);
+        resolve();
+    };
+
+    reader.readAsDataURL(pdfFile);
+});
         }
 
         return newBook;
